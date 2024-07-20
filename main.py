@@ -36,19 +36,19 @@ async def on_ready():
         description=f"**Commands**:\n```\n/gen [service]\n/stock\n```\n**Settings**:\n```\nYou need to allow Direct Messages from server members to use this bot.\n```\n**Cooldown:**\n```\nThe cooldown is {free_gen_cooldown} seconds.\n```",
         color=0xf43f5e
     )
-    free_channel_embed.set_footer(text="Made by github.com/vatosv2 & discord.gg/nexustools")
+    free_channel_embed.set_footer(text="Paid Leaks | FreeGen")
     booster_channel_embed = discord.Embed(
         title="How to use Booster gen:",
         description=f"**Commands**:\n```\n/booster_gen [service]\n/booster_stock\n```\n**Settings**:\n```\nYou need to allow Direct Messages from server members to use this bot.\n```\n**Cooldown:**\n```\nThe cooldown is {boost_gen_cooldown} seconds.\n```",
         color=0xf43f5e
     )
-    booster_channel_embed.set_footer(text="Made by github.com/vatosv2 & discord.gg/nexustools")
+    booster_channel_embed.set_footer(text="Paid Leaks | BoosterGen")
     premium_channel_embed = discord.Embed(
         title="How to use Premium gen:",
         description=f"**Commands**:\n```\n/premium_gen [service]\n/premium_stock\n```\n**Settings**:\n```\nYou need to allow Direct Messages from server members to use this bot.\n```\n**Cooldown:**\n```\nThe cooldown is {premium_gen_cooldown} seconds.\n```",
         color=0xf43f5e
     )
-    premium_channel_embed.set_footer(text="Made by github.com/vatosv2 & discord.gg/nexustools")
+    premium_channel_embed.set_footer(text="Paid Leaks | PremiumGen")
     await free_channel.send(embed=free_channel_embed)
     await booster_channel.send(embed=booster_channel_embed)
     await premium_channel.send(embed=premium_channel_embed)
@@ -214,12 +214,12 @@ async def add_service(
         if attachment:
             content = await attachment.read()
             content = content.decode()
-            with open(f"{folder}/{service}.txt", "w", encoding="utf-8") as nexus:
+            with open(f"{folder}/{service}.txt", "w", encoding="utf-8") as faizur:
                 for stock in content.splitlines():
-                    nexus.write(stock + "\n")
+                    faizur.write(stock + "\n")
         else:
-            with open(f"{folder}/{service}.txt", "w", encoding="utf-8") as nexus:
-                nexus.close()
+            with open(f"{folder}/{service}.txt", "w", encoding="utf-8") as faizur:
+                faizur.close()
         await ctx.respond(f"Added Service: `{service}`!", ephemeral=True)
 
 @bot.slash_command(name="get_log_file", descriptiom="get the log file", guild_ids=[guild_id])
@@ -250,13 +250,13 @@ async def stock(ctx):
             service = service[:-4]
             stock1 += f"**{service}** `{count}` \n"
         embed = discord.Embed(
-            title="Nexus Gen Stock",
+            title="Paid Leaks Gen Stock",
             description=(
                 stock1
             ),
             color=discord.Color.from_rgb(250, 10, 214)
         )
-        embed.set_footer(text="Made by github.com/vatosv2 & discord.gg/nexustools")
+        embed.set_footer(text="Paid Leaks | Faizur")
         await ctx.respond(embed=embed, ephemeral=True)
     else:
         await ctx.respond("Wrong channel buddy.", ephemeral=True)
@@ -300,9 +300,9 @@ async def restock(
     log_action_file(f"{ctx.author.name} Restocked {service} in free Gen")
     content = await attachment.read()
     content = content.decode()
-    with open(f"{free_gen_folder}/{service}.txt", "a", encoding="utf-8") as nexus:
+    with open(f"{free_gen_folder}/{service}.txt", "a", encoding="utf-8") as faizur:
         for stock in content.splitlines():
-            nexus.write(stock + "\n")
+            faizur.write(stock + "\n")
     await ctx.respond(f"Restocked `{service}`!", ephemeral=True)
 
 @bot.slash_command(name="clear_free_stock", description="Clears A free service Stock.", guild_ids=[guild_id])
@@ -320,8 +320,8 @@ async def clear_free_stock(
         )
     log_action_webhook(admincommandshook, f"<@{ctx.author.id}> Cleared {service} in free Gen", "Admin")
     log_action_file(f"{ctx.author.name} Cleared {service} in free Gen")
-    with open(f"{free_gen_folder}/{service}.txt", "w", encoding="utf-8") as nexus:
-        nexus.write("")
+    with open(f"{free_gen_folder}/{service}.txt", "w", encoding="utf-8") as faizur:
+        faizur.write("")
     await ctx.respond(f"Cleared Stock of `{service}`!", ephemeral=True)
 
 
@@ -395,13 +395,13 @@ async def booster_stock(ctx):
             service = service[:-4]
             stock1 += f"**{service}** `{count}` \n"
         embed = discord.Embed(
-            title="Nexus Gen Stock",
+            title="Paid Leaks Gen Stock",
             description=(
                 stock1
             ),
             color=discord.Color.from_rgb(250, 10, 214)
         )
-        embed.set_footer(text="Made by github.com/vatosv2 & discord.gg/nexustools")
+        embed.set_footer(text="Paid Leaks | Faizur")
         await ctx.respond(embed=embed, ephemeral=True)
     else:
         await ctx.respond("Wrong channel buddy.", ephemeral=True)
@@ -444,9 +444,9 @@ async def booster_restock(
     log_action_file(f"{ctx.author.name} Restocked {service} in booster Gen")
     content = await attachment.read()
     content = content.decode()
-    with open(f"{boost_gen_folder}/{service}.txt", "a", encoding="utf-8") as nexus:
+    with open(f"{boost_gen_folder}/{service}.txt", "a", encoding="utf-8") as faizur:
         for stock in content.splitlines():
-            nexus.write(stock + "\n")
+            faizur.write(stock + "\n")
     await ctx.respond(f"Restocked `{service}`!", ephemeral=True)
 
 @bot.slash_command(name="clear_booster_stock", description="Clears A booster service Stock.", guild_ids=[guild_id])
@@ -464,8 +464,8 @@ async def clear_booster_stock(
         )
     log_action_webhook(admincommandshook, f"<@{ctx.author.id}> Cleared {service} in booster Gen", "Admin")
     log_action_file(f"{ctx.author.name} Cleared {service} in booster Gen")
-    with open(f"{boost_gen_folder}/{service}.txt", "w", encoding="utf-8") as nexus:
-        nexus.write("")
+    with open(f"{boost_gen_folder}/{service}.txt", "w", encoding="utf-8") as faizur:
+        faizur.write("")
     await ctx.respond(f"Cleared Stock of `{service}`!", ephemeral=True)
 
 @bot.slash_command(name="booster_gen", description="Gens From Booster Stock.", guild_ids=[guild_id])
@@ -538,13 +538,13 @@ async def premium_stock(ctx):
             service = service[:-4]
             stock1 += f"**{service}** `{count}` \n"
         embed = discord.Embed(
-            title="Nexus Gen Stock",
+            title="Paid Leaks Gen Stock",
             description=(
                 stock1
             ),
             color=discord.Color.from_rgb(250, 10, 214)
         )
-        embed.set_footer(text="Made by github.com/vatosv2 & discord.gg/nexustools")
+        embed.set_footer(text="Paid Leaks | Faizur")
         await ctx.respond(embed=embed, ephemeral=True)
     else:
         await ctx.respond("Wrong channel buddy.", ephemeral=True)
@@ -587,9 +587,9 @@ async def restock_premium(
     log_action_file(f"{ctx.author.name} Restocked {service} in premium Gen")
     content = await attachment.read()
     content = content.decode()
-    with open(f"{premium_gen_folder}/{service}.txt", "a", encoding="utf-8") as nexus:
+    with open(f"{premium_gen_folder}/{service}.txt", "a", encoding="utf-8") as faizur:
         for stock in content.splitlines():
-            nexus.write(stock + "\n")
+            faizur.write(stock + "\n")
     await ctx.respond(f"Restocked `{service}`!", ephemeral=True)
 
 @bot.slash_command(name="clear_premium_stock", description="Clears A premium service Stock.", guild_ids=[guild_id])
@@ -607,8 +607,8 @@ async def clear_premium_stock(
         )
     log_action_webhook(admincommandshook, f"<@{ctx.author.id}> cleared {service} in premium Gen", "Admin")
     log_action_file(f"{ctx.author.name} cleared {service} in premium Gen")
-    with open(f"{premium_gen_folder}/{service}.txt", "w", encoding="utf-8") as nexus:
-        nexus.write("")
+    with open(f"{premium_gen_folder}/{service}.txt", "w", encoding="utf-8") as faizur:
+        faizur.write("")
     await ctx.respond(f"Cleared Stock of `{service}`!", ephemeral=True)
 
 @bot.slash_command(name="premium_gen", description="Gens From premium Stock.", guild_ids=[guild_id])
@@ -670,12 +670,12 @@ async def premium_gen(ctx, error):
 #################################################################################################################################################################
 os.system('cls' if os.name == 'nt' else 'clear')
 print(f'''{Fore.LIGHTMAGENTA_EX}
-                    ███╗   ██╗███████╗██╗  ██╗██╗   ██╗███████╗   ████████╗ ██████╗  ██████╗ ██╗     ███████╗  
-                    ████╗  ██║██╔════╝╚██╗██╔╝██║   ██║██╔════╝   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝      
-                    ██╔██╗ ██║█████╗   ╚███╔╝ ██║   ██║███████╗█████╗██║   ██║   ██║██║   ██║██║     ███████╗       
-                    ██║╚██╗██║██╔══╝   ██╔██╗ ██║   ██║╚════██║╚════╝██║   ██║   ██║██║   ██║██║     ╚════██║       
-                    ██║ ╚████║███████╗██╔╝ ██╗╚██████╔╝███████║      ██║   ╚██████╔╝╚██████╔╝███████╗███████║   
+                    ███╗   ██╗███████╗██╗  ██╗██╗  ██  ███████╗ ██████╗  ██████╗ ██╗     ███████╗  
+                    ████╗  ██║██╔════╝╚██╗██╔╝██║   ██║██╔══╝   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝      
+                   █╗       
+                    ██║╚██╗█╔══╝   ██╔██╗ ██║   ██║╚═══██║╚══██║   ██║   ██║██║   ██║██║     ╚════██║       
+                    ██║ ╚████║████╗██╔╝ ██╗╚███████████║    ██║   ████╔╝╚██████╔╝███████╗███████║   
                     ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
-                                                discord.gg/nexustools
+                                                BY Faizur
     ''')
 bot.run(bot_token)
