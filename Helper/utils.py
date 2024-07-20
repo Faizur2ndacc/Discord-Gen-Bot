@@ -11,7 +11,7 @@ from discord.ext import commands
 
 
         
-activity = discord.Activity(type=discord.ActivityType.playing, name=f"discord.gg/nexustools")
+activity = discord.Activity(type=discord.ActivityType.playing, name=f"Paid Leaks | Faizur")
 intents=discord.Intents.default()
 intents.members = True
 intents.presences = True
@@ -143,7 +143,7 @@ def log_action_webhook(webhook, message, logtype):
         "description": f"{message}",
         "color": 16056575,
         "footer": {
-            "text": "Made by github.com/vatosv2 & discord.gg/nexustools"
+            "text": "Paid Leaks | Faizur"
         }
     }
     payload = {
@@ -154,5 +154,5 @@ def log_action_webhook(webhook, message, logtype):
 def log_action_file(message):
     now = datetime.now()
     print(f"{Fore.RESET}[{Fore.GREEN}{now}{Fore.RESET}] {message} \n")
-    with open("assets/logs.txt", "a", encoding="utf-8") as nexus:
-        nexus.write(f"[{now}] {message} \n")
+    with open("assets/logs.txt", "a", encoding="utf-8") as faizur:
+        faizur.write(f"[{now}] {message} \n")
